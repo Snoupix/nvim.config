@@ -9,18 +9,28 @@ vim.keymap.set('n', "<leader>f", vim.cmd.Ex)
 -- Ctrl+W =: equalize width and height of all windows
 -- See also: :help CTRL-W
 
-vim.api.nvim_set_keymap('n', 'U', "<Cmd>redo<CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', 'U', "<cmd>redo<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap('n', "<C-c>", ":CommentToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', "<C-c>", ":CommentToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "<C-c>", "<cmd>CommentToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', "<C-c>", "<cmd>CommentToggle<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', "gn", ":tabn<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', "gp", ":tabp<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', "gs", ":normal! ^<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', "gl", ":normal! $<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "gn", "<cmd>tabn<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "gp", "<cmd>tabp<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "gs", "<cmd>normal! ^<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "gl", "<cmd>normal! $<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', "<C-w>q", ":bd<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', "<C-w>qf", ":bd!<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', "gs", "<cmd>normal! ^<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', "gl", "<cmd>normal! $<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', "<C-w>q", "<cmd>bd<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "<C-w>qf", "<cmd>bd!<CR>", { noremap = false, silent = true })
 
 vim.api.nvim_set_keymap('n', "<C-x>v", "<C-w>v<cmd>terminal<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "<C-x>h", "<C-w>S<cmd>terminal<CR>", { noremap = false, silent = true })
+
+vim.api.nvim_set_keymap('v', 'ms"', '<Esc>`>a"<Esc>`<i"<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('v', "ms'", "<Esc>`>a'<Esc>`<i'<Esc>", { noremap = true })
+vim.api.nvim_set_keymap('v', "ms<", "<Esc>`>a><Esc>`<i<<Esc>", { noremap = true })
+vim.api.nvim_set_keymap('v', "ms{", "<Esc>`>a}<Esc>`<i{<Esc>", { noremap = true })
+vim.api.nvim_set_keymap('v', "ms(", "<Esc>`>a)<Esc>`<i(<Esc>", { noremap = true })
+vim.api.nvim_set_keymap('v', "ms[", "<Esc>`>a]<Esc>`<i[<Esc>", { noremap = true })
