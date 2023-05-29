@@ -1,11 +1,10 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
-  -- use({ '/root/.config/nvim/lua/snoupix/tokyonight_snoupix.lua', as = 'tokyonight_snoupix' })
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.x',
