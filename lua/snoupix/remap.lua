@@ -12,7 +12,7 @@ vim.keymap.set('n', "<leader>f", vim.cmd.Ex)
 vim.api.nvim_set_keymap('n', 'U', "<cmd>redo<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap('n', "<C-c>", "<cmd>CommentToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', "<C-c>", "<cmd>CommentToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', "<C-c>", "<cmd>'<,'>CommentToggle<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', "gn", "<cmd>tabn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', "gp", "<cmd>tabp<CR>", { noremap = true, silent = true })
@@ -22,8 +22,8 @@ vim.api.nvim_set_keymap('n', "gl", "<cmd>normal! $<CR>", { noremap = true, silen
 vim.api.nvim_set_keymap('v', "gs", "<cmd>normal! ^<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', "gl", "<cmd>normal! $<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', "<C-w>q", "<cmd>bd<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', "<C-w>qf", "<cmd>bd!<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "<C-w>qd", "<cmd>bd<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "<C-w>qdf", "<cmd>bd!<CR>", { noremap = false, silent = true })
 
 vim.api.nvim_set_keymap('n', "<C-x>v", "<C-w>v<cmd>terminal<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "<C-x>h", "<C-w>S<cmd>terminal<CR>", { noremap = false, silent = true })
