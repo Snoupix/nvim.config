@@ -1,7 +1,4 @@
 vim.cmd [[packadd packer.nvim]]
-vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
-vim.cmd [[Copilot enable]]
-vim.cmd [[highlight SignColumn guibg=NONE]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
