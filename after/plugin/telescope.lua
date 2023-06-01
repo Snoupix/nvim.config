@@ -7,7 +7,14 @@ require('telescope').setup({
             i = {
                 ["<esc>"] = actions.close,
                 ["<C-h>"] = actions.file_split,
+                ["<C-t>"] = actions.select_default,
+                ["<CR>"] = actions.select_tab,
+
             },
+            n = {
+                ["<C-t>"] = actions.select_default,
+                ["<CR>"] = actions.select_tab,
+            }
         },
     },
 })
