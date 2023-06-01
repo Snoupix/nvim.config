@@ -22,8 +22,8 @@ vim.api.nvim_set_keymap('n', "gl", "<cmd>normal! $<CR>", { noremap = true, silen
 vim.api.nvim_set_keymap('v', "gs", "<cmd>normal! ^<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', "gl", "<cmd>normal! $<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', "<C-w>qd", "<cmd>bd<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap('n', "<C-w>qdf", "<cmd>bd!<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap('n', "<C-w>qd", "<cmd>bd<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', "<C-w>qdf", "<cmd>bd!<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', "<C-x>v", "<C-w>v<cmd>terminal<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap('n', "<C-x>h", "<C-w>S<cmd>terminal<CR>", { noremap = false, silent = true })
@@ -34,3 +34,14 @@ vim.api.nvim_set_keymap('v', "ms<", "<Esc>`>a><Esc>`<i<<Esc>", { noremap = true 
 vim.api.nvim_set_keymap('v', "ms{", "<Esc>`>a}<Esc>`<i{<Esc>", { noremap = true })
 vim.api.nvim_set_keymap('v', "ms(", "<Esc>`>a)<Esc>`<i(<Esc>", { noremap = true })
 vim.api.nvim_set_keymap('v', "ms[", "<Esc>`>a]<Esc>`<i[<Esc>", { noremap = true })
+
+vim.api.nvim_set_keymap('n', "<C-y>", "<C-d>zz", { noremap = true })
+vim.api.nvim_set_keymap('n', "<C-u>", "<C-u>zz", { noremap = true })
+
+vim.api.nvim_set_keymap('x', "<leader>p", "\"_dP", { noremap = true })
+
+vim.api.nvim_set_keymap('n', "<leader>y", "\"+y", { noremap = true })
+vim.api.nvim_set_keymap('v', "<leader>y", "\"+y", { noremap = true })
+
+vim.api.nvim_set_keymap('n', "<leader>d", "\"_d", { noremap = true })
+vim.api.nvim_set_keymap('v', "<leader>d", "\"_d", { noremap = true })
