@@ -79,7 +79,13 @@ local GetLSPs = function()
 end
 
 local GetCopilotStatus = function()
-    return vim.api.nvim_command_output("Copilot status")
+    local status = vim.api.nvim_command_output("Copilot status")
+
+    if string.find(status, "g:copilot_filetypes") then
+        return "Copilot: Disabled for " .. string.match(status, "filetype=(%a+)")
+    end
+
+    return status
 end
 
 require('lualine').setup {
