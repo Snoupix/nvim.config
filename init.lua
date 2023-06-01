@@ -1,8 +1,5 @@
 require("snoupix")
 
-vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
-vim.cmd [[highlight SignColumn guibg=NONE]]
-
 -- local filepath = vim.fn.expand('%:p:h')
 -- local gitdir = vim.fn.finddir('.git', filepath .. ';')
 -- if gitdir and #gitdir > 0 and #gitdir < #filepath then

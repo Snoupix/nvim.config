@@ -36,21 +36,21 @@ local CheckGitWorkspace = function()
     return gitdir and #gitdir > 0 and #gitdir < #filepath
 end
 
-local GetFileName = function()
-    local path = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:~:h')
-    local path_arr = vim.fn.split(path, '/')
-    local result = ''
-    for _, str in ipairs(path_arr) do
-        if str:sub(1, 1) == '.' then
-            result = result .. str:sub(1, 2) .. '/'
-            goto continue
-        end
-
-        result = result .. str:sub(1, 1) .. '/'
-        ::continue::
-    end
-    return result .. vim.fn.expand('%:t')
-end
+-- local GetRootPath = function()
+--     local path = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:~:h')
+--     local path_arr = vim.fn.split(path, '/')
+--     local result = ''
+--     for _, str in ipairs(path_arr) do
+--         if str:sub(1, 2) == '.' then
+--             result = result .. str:sub(1, 3) .. '/'
+--             goto continue
+--         end
+--
+--         result = result .. str:sub(1, 2) .. '/'
+--         ::continue::
+--     end
+--     return result
+-- end
 
 local GetLSPs = function()
     local msg = ''
@@ -65,12 +65,12 @@ local GetLSPs = function()
         local filetypes = client.config.filetypes
         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
             if msg == '' then
-                msg = client.name:gsub("^%l", string.upper)
+                msg = client.name
 
                 goto continue
             end
 
-            msg = msg .. " - " .. client.name:gsub("^%l", string.upper)
+            msg = msg .. " - " .. client.name
         end
         ::continue::
     end
@@ -131,17 +131,15 @@ require('lualine').setup {
             { 'mode', separator = { right = '', left = '' }, right_padding = 2 }
         },
         lualine_b = {
+            'fileformat',
             { 'branch', cond = CheckGitWorkspace },
-            { 'diff',   cond = CheckGitWorkspace },
         },
-        lualine_c = { GetLSPs, { '%=', separator = { right = '' } }, GetFileName },
-        lualine_x = { GetCopilotStatus },
+        lualine_c = { { 'diff', cond = CheckGitWorkspace }, GetLSPs, { '%=', separator = { right = '' } }, 'filename' },
+        lualine_x = { GetCopilotStatus, 'diagnostics' },
         lualine_y = {
-            { 'diagnostics', --[[separator = { left = '' }]] },
             { 'searchcount', --[[separator = { left = '' }]] },
             { 'selectioncount', --[[separator = { left = '' }]] },
             { 'encoding', --[[separator = { left = '' }]] },
-            { 'fileformat', --[[separator = { left = '' }]] },
             { 'progress', --[[separator = { left = '' }]] },
             { 'location', --[[separator = { left = '' }]] },
         },
