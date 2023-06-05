@@ -45,3 +45,6 @@ vim.api.nvim_set_keymap('v', "<leader>y", "\"+y", { noremap = true })
 
 vim.api.nvim_set_keymap('n', "<leader>d", "\"_d", { noremap = true })
 vim.api.nvim_set_keymap('v', "<leader>d", "\"_d", { noremap = true })
+
+vim.api.nvim_set_keymap('n', "n", "nzz", { noremap = false })
+vim.api.nvim_set_keymap('n', "N", "Nzz", { noremap = false })
