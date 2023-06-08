@@ -141,7 +141,14 @@ require('lualine').setup {
             { 'branch', cond = CheckGitWorkspace },
         },
         lualine_c = { { 'diff', cond = CheckGitWorkspace }, GetLSPs, { '%=', separator = { right = '' } }, 'filename' },
-        lualine_x = { GetCopilotStatus, 'diagnostics' },
+        lualine_x = {
+            GetCopilotStatus,
+            {
+                'diagnostics',
+                symbols = { error = '❗️', warn = '⚠️  ', info = '⚡️', hint = '💡' },
+                colored = true,
+            }
+        },
         lualine_y = {
             { 'searchcount', --[[separator = { left = '' }]] },
             { 'selectioncount', --[[separator = { left = '' }]] },
@@ -159,6 +166,14 @@ require('lualine').setup {
         lualine_y = {},
         lualine_z = {}
     },
+    -- tabline = {
+    --     lualine_a = {},
+    --     lualine_b = {'branch'},
+    --     lualine_c = {'filename'},
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = {}
+    -- },
     tabline = {},
     winbar = {},
     inactive_winbar = {},
