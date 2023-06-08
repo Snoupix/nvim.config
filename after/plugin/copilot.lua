@@ -14,6 +14,7 @@ vim.g.copilot_filetypes = {
     ["c#"] = true,
     ["c++"] = true,
     ["go"] = true,
+    ["gomod"] = true,
     ["python"] = true,
     ["html"] = true,
     ["css"] = true,
