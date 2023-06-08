@@ -12,6 +12,7 @@ end
 local ExecuteVimCmds = function()
     vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
     vim.cmd [[highlight SignColumn guibg=NONE]]
+    vim.cmd [[set autoread]]
 end
 
 function FixMeDaddy()
