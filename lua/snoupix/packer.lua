@@ -69,4 +69,12 @@ return require('packer').startup(function(use)
 
     use 'm4xshen/autoclose.nvim'
     use 'mbbill/undotree'
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    })
 end)
