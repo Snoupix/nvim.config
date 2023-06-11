@@ -3,7 +3,7 @@ local lsp = require('lsp-zero').preset({})
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    --'sumneko_lua',
+    'sumneko_lua',
     --'rust-analyzer',
 })
 
@@ -56,8 +56,17 @@ local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.rust_analyzer.setup({
     root_dir = lspconfig.util.root_pattern("Cargo.toml"),
-    check = {
-        command = "clippy",
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy",
+            },
+            files = {
+                cargoFmt = {
+                    enable = true,
+                },
+            },
+        }
     },
 })
 
