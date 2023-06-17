@@ -14,6 +14,9 @@ vim.api.nvim_set_keymap('n', 'U', "<cmd>redo<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', "<C-c>", "<cmd>CommentToggle<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', "<C-c>", "<cmd>'<,'>CommentToggle<CR>", { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('v', "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', "<C-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', "gn", "<cmd>tabn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', "gp", "<cmd>tabp<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', "gs", "<cmd>normal! ^<CR>", { noremap = true, silent = true })
