@@ -27,7 +27,7 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>s", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "<C-d>", function() vim.diagnostic.goto_next() end, opts)
     --vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
@@ -68,6 +68,21 @@ lspconfig.rust_analyzer.setup({
             },
         }
     },
+})
+
+lspconfig.hls.setup({
+    cmd = { "haskell-language-server-wrapper", "--lsp" },
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    root_dir = lspconfig.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"),
+    settings = {
+        haskell = {
+            checkOnSave = {
+                command = "hlint",
+            },
+            cabalFormattingProvider = "cabalfmt",
+            formattingProvider = "ormolu"
+        }
+    }
 })
 
 lsp.setup()
