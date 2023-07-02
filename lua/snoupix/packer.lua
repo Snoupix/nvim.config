@@ -11,9 +11,9 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- use({ 'rose-pine/neovim', as = 'rose-pine' })
-
+    -- TODO: try to configure onedark into tokyonight fashion
     use({ 'folke/tokyonight.nvim', as = 'tokyonight', priority = 1000, opts = {} })
+    use 'navarasu/onedark.nvim'
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
