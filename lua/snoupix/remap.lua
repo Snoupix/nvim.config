@@ -40,6 +40,8 @@ vim.api.nvim_set_keymap('v', "ms[", "<Esc>`>a]<Esc>`<i[<Esc>", { noremap = true 
 
 vim.api.nvim_set_keymap('n', "<C-y>", "<C-d>zz", { noremap = true })
 vim.api.nvim_set_keymap('n', "<C-u>", "<C-u>zz", { noremap = true })
+vim.api.nvim_set_keymap('v', "<C-y>", "<C-d>zz", { noremap = true })
+vim.api.nvim_set_keymap('v', "<C-u>", "<C-u>zz", { noremap = true })
 
 vim.api.nvim_set_keymap('x', "<leader>p", "\"_dP", { noremap = true })
 
