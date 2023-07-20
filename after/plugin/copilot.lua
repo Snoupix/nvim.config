@@ -19,4 +19,5 @@ vim.g.copilot_filetypes = {
     ["css"] = true,
     ["scss"] = true,
     ["haskell"] = true,
+    ["markdown"] = false,
 }
