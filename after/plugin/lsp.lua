@@ -55,7 +55,7 @@ local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.rust_analyzer.setup({
-    root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+    root_dir = lspconfig.util.root_pattern("Cargo.toml") or lspconfig.util.root_pattern("rust-project.json"),
     settings = {
         ["rust-analyzer"] = {
             checkOnSave = {
