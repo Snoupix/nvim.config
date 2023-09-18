@@ -29,23 +29,24 @@ local ChangeColorScheme = function(color)
         -- Custom Highlights --
         colors = {
             -- dark_purple = '#ffffff',
+            -- a nice yellow #c4c631
             
             black = '#0e1013',
             bg0 = '#1f2329',
-            bg1 = '#282c34',
+            bg1 = 'none',
             bg2 = '#30363f',
             bg3 = '#323641',
             bg_d = '#181b20',
             bg_blue = '#61afef',
             bg_yellow = '#e8c88c',
             fg = '#a0a8b7',
-            purple = '#bf68d9', -- errors & keywords
-            green = '#2dd8d3',
+            purple = '#a959c1', -- errors & keywords
+            green = '#3dce81', -- strings
             orange = '#7c54ea', -- GLOBALS & some Types
-            blue = '#4fa6ed',
-            yellow = '#308e99', -- imports
-            cyan = '#3dce81', -- properties & macros 
-            red = '#e53241', -- error messages on popups & parameters
+            blue = '#4fa6ed', -- functions
+            yellow = '#20d6bd', -- imports
+            cyan = '#3bdbd5', -- properties & macros 
+            red = '#7a818e', -- error messages on popups & parameters
             grey = '#535965',
             light_grey = '#7a818e',
             dark_cyan = '#266269',
@@ -88,4 +89,4 @@ function FixMeDaddy(theme)
     RefreshLuaLine(theme)
 end
 
-FixMeDaddy()
+FixMeDaddy('onedark')
