@@ -88,94 +88,98 @@ local GetCopilotStatus = function()
     return status
 end
 
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = {
-            normal = {
-                a = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
-                b = { fg = colors.bg, bg = colors.fg },
-                c = { fg = colors.white, bg = colors.bg_menu },
-                x = { fg = colors.white, bg = colors.bg_menu },
-                y = { fg = colors.bg, bg = colors.fg },
-                z = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
-            },
+function RefreshLuaLine(theme)
+    require('lualine').setup {
+        options = {
+            icons_enabled = true,
+            theme = theme and theme or {
+                normal = {
+                    a = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
+                    b = { fg = colors.bg, bg = colors.fg },
+                    c = { fg = colors.white, bg = colors.bg_menu },
+                    x = { fg = colors.white, bg = colors.bg_menu },
+                    y = { fg = colors.bg, bg = colors.fg },
+                    z = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
+                },
 
-            insert = { a = { fg = colors.black, bg = colors.light_green } },
-            visual = { a = { fg = colors.black, bg = colors.yellow } },
-            replace = { a = { fg = colors.black, bg = colors.red } },
-            command = { a = { fg = colors.black, bg = colors.teal } },
+                insert = { a = { fg = colors.black, bg = colors.light_green } },
+                visual = { a = { fg = colors.black, bg = colors.yellow } },
+                replace = { a = { fg = colors.black, bg = colors.red } },
+                command = { a = { fg = colors.black, bg = colors.teal } },
 
-            inactive = {
-                a = { fg = colors.white, bg = colors.black },
-                b = { fg = colors.white, bg = colors.black },
-                c = { fg = colors.white, bg = colors.black },
-                x = { fg = colors.white, bg = colors.black },
-                y = { fg = colors.white, bg = colors.black },
-                z = { fg = colors.white, bg = colors.black },
+                inactive = {
+                    a = { fg = colors.white, bg = colors.black },
+                    b = { fg = colors.white, bg = colors.black },
+                    c = { fg = colors.white, bg = colors.black },
+                    x = { fg = colors.white, bg = colors.black },
+                    y = { fg = colors.white, bg = colors.black },
+                    z = { fg = colors.white, bg = colors.black },
+                },
             },
-        },
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        -- component_separators = '|',
-        -- section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-        lualine_a = {
-            { 'mode', separator = { right = '', left = '' }, right_padding = 2 }
-        },
-        lualine_b = {
-            'fileformat',
-            { 'branch', cond = CheckGitWorkspace },
-        },
-        lualine_c = { { 'diff', cond = CheckGitWorkspace }, GetLSPs, { '%=', separator = { right = '' } }, 'filename' },
-        lualine_x = {
-            GetCopilotStatus,
-            {
-                'diagnostics',
-                symbols = { error = '❗️', warn = '🔔', info = '⚡️', hint = '💡' },
-                colored = true,
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' },
+            -- component_separators = '|',
+            -- section_separators = { left = '', right = '' },
+            disabled_filetypes = {
+                statusline = {},
+                winbar = {},
+            },
+            ignore_focus = {},
+            always_divide_middle = true,
+            globalstatus = false,
+            refresh = {
+                statusline = 1000,
+                tabline = 1000,
+                winbar = 1000,
             }
         },
-        lualine_y = {
-            { 'searchcount', --[[separator = { left = '' }]] },
-            { 'selectioncount', --[[separator = { left = '' }]] },
-            { 'encoding', --[[separator = { left = '' }]] },
-            { 'progress', --[[separator = { left = '' }]] },
-            { 'location', --[[separator = { left = '' }]] },
+        sections = {
+            lualine_a = {
+                { 'mode', separator = { right = '', left = '' }, right_padding = 2 }
+            },
+            lualine_b = {
+                'fileformat',
+                { 'branch', cond = CheckGitWorkspace },
+            },
+            lualine_c = { { 'diff', cond = CheckGitWorkspace }, GetLSPs, { '%=', separator = { right = '' } }, 'filename' },
+            lualine_x = {
+                GetCopilotStatus,
+                {
+                    'diagnostics',
+                    symbols = { error = '❗️', warn = '🔔', info = '⚡️', hint = '💡' },
+                    colored = true,
+                }
+            },
+            lualine_y = {
+                { 'searchcount', --[[separator = { left = '' }]] },
+                { 'selectioncount', --[[separator = { left = '' }]] },
+                { 'encoding', --[[separator = { left = '' }]] },
+                { 'progress', --[[separator = { left = '' }]] },
+                { 'location', --[[separator = { left = '' }]] },
+            },
+            lualine_z = { { 'filetype', separator = { right = '', left = '' } } }
         },
-        lualine_z = { { 'filetype', separator = { right = '', left = '' } } }
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
-    -- tabline = {
-    --     lualine_a = {},
-    --     lualine_b = {'branch'},
-    --     lualine_c = {'filename'},
-    --     lualine_x = {},
-    --     lualine_y = {},
-    --     lualine_z = {}
-    -- },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-}
+        inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {}
+        },
+        -- tabline = {
+        --     lualine_a = {},
+        --     lualine_b = {'branch'},
+        --     lualine_c = {'filename'},
+        --     lualine_x = {},
+        --     lualine_y = {},
+        --     lualine_z = {}
+        -- },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {}
+    }
+end
+
+RefreshLuaLine()
