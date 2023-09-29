@@ -182,4 +182,4 @@ function RefreshLuaLine(theme)
     }
 end
 
-RefreshLuaLine()
+RefreshLuaLine('onedark')

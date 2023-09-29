@@ -22,15 +22,16 @@ require('telescope').setup({
 -- <C-x> go to file selection as a split => now <C-h>
 -- <C-v> go to file selection as a vsplit
 -- <C-t> go to a file in a new tab
-vim.keymap.set('n', '<leader>af', function()
+vim.keymap.set('n', '<leader>fa', function()
     builtin.find_files({ hidden = true, no_ignore = true })
 end, {})
 vim.keymap.set('n', '<leader>ff', function()
     builtin.find_files({ hidden = true, no_ignore = false })
 end, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>/', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})

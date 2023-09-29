@@ -3,7 +3,7 @@ local ChangeColorScheme = function(color)
         style = 'darker',             -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
         transparent = true,           -- Show/hide background
         term_colors = true,           -- Change terminal color as per the selected theme style
-        ending_tildes = false,        -- Show the end-of-buffer tildes. By default they are hidden
+        ending_tildes = true,        -- Show the end-of-buffer tildes. By default they are hidden
         cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
         -- toggle theme style ---
@@ -32,12 +32,13 @@ local ChangeColorScheme = function(color)
             -- a nice yellow #c4c631
             
             black = '#0e1013',
-            bg0 = '#1f2329',
+            -- bg0 = '#1f2329',
+            bg0 = '#000000', -- Needed for lua line rounded borders to have a transparent background (Can't be none)
             bg1 = 'none',
             bg2 = '#30363f',
             bg3 = '#323641',
             bg_d = '#181b20',
-            bg_blue = '#61afef',
+            bg_blue = '#7a776e', -- suggestion highlight
             bg_yellow = '#e8c88c',
             fg = '#a0a8b7',
             purple = '#a959c1', -- errors & keywords
@@ -81,6 +82,7 @@ local ExecuteVimCmds = function()
     vim.cmd [[tnoremap <Esc> <C-\><C-n>]]
     vim.cmd [[highlight SignColumn guibg=NONE]]
     vim.cmd [[set autoread]]
+    vim.cmd [[set guicursor=a:blinkon100]]
 end
 
 function FixMeDaddy(theme)

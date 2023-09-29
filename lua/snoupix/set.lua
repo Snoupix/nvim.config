@@ -27,3 +27,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 --vim.opt.colorcolumn = "80"
+
+-- make this following line in nvim
+-- let g:smoothie_no_default_mappings = true
