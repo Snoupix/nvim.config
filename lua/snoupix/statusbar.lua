@@ -94,12 +94,12 @@ function RefreshLuaLine(theme)
             icons_enabled = true,
             theme = theme and theme or {
                 normal = {
-                    a = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
+                    a = { fg = colors.fg_highlight, bg = colors.purple },
                     b = { fg = colors.bg, bg = colors.fg },
                     c = { fg = colors.white, bg = colors.bg_menu },
                     x = { fg = colors.white, bg = colors.bg_menu },
                     y = { fg = colors.bg, bg = colors.fg },
-                    z = { fg = colors.fg_highlight, bg = colors.purple, gui = 'bold' },
+                    z = { fg = colors.fg_highlight, bg = colors.purple },
                 },
 
                 insert = { a = { fg = colors.black, bg = colors.light_green } },
