@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 vim.api.nvim_set_option('timeoutlen', 500)
 vim.keymap.set('n', "<leader>f", vim.cmd.Ex)
 
+vim.keymap.set("n", "<leader>gc", function()
+    require("treesitter-context").go_to_context()
+end, { silent = true })
+
 -- Ctrl+W +/-: increase/decrease height (ex. 20<C-w>+)
 -- Ctrl+W >/<: increase/decrease width (ex. 30<C-w><)
 -- Ctrl+W _: set height (ex. 50<C-w>_)

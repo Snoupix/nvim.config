@@ -11,11 +11,11 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- TODO: try to configure onedark into tokyonight fashion
     use({ 'folke/tokyonight.nvim', as = 'tokyonight', priority = 1000, opts = {} })
     use 'navarasu/onedark.nvim'
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
         }
     }
 
+    use 'rust-lang/rust.vim'
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
 
@@ -52,7 +53,7 @@ return require('packer').startup(function(use)
                 RGB      = true,         -- #RGB hex codes
                 RRGGBB   = true,         -- #RRGGBB hex codes
                 names    = true,         -- "Name" codes like Blue
-                RRGGBBAA = true,        -- #RRGGBBAA hex codes
+                RRGGBBAA = true,         -- #RRGGBBAA hex codes
                 rgb_fn   = false,        -- CSS rgb() and rgba() functions
                 hsl_fn   = false,        -- CSS hsl() and hsla() functions
                 css      = false,        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
@@ -81,6 +82,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use 'f-person/git-blame.nvim'
+
     use 'm4xshen/autoclose.nvim'
     use 'mbbill/undotree'
 
@@ -92,8 +95,12 @@ return require('packer').startup(function(use)
         end
     })
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
 
     use 'imsnif/kdl.vim'
 

@@ -44,7 +44,7 @@ lsp.format_on_save({
     },
     servers = {
         ['lua_ls'] = { 'lua' },
-        ['rust_analyzer'] = { 'rust' },
+        -- ['rust_analyzer'] = { 'rust' },
         -- if you have a working setup with null-ls
         -- you can specify filetypes it can format.
         -- ['null-ls'] = {'javascript', 'typescript'},
@@ -53,22 +53,23 @@ lsp.format_on_save({
 
 local lspconfig = require('lspconfig')
 
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-lspconfig.rust_analyzer.setup({
-    root_dir = lspconfig.util.root_pattern("Cargo.toml") or lspconfig.util.root_pattern("rust-project.json"),
-    settings = {
-        ["rust-analyzer"] = {
-            checkOnSave = {
-                command = "clippy",
-            },
-            files = {
-                cargoFmt = {
-                    enable = true,
-                },
-            },
-        }
-    },
-})
+-- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+
+-- lspconfig.rust_analyzer.setup({
+--     root_dir = lspconfig.util.root_pattern("Cargo.toml") or lspconfig.util.root_pattern("rust-project.json"),
+--     settings = {
+--         ["rust-analyzer"] = {
+--             checkOnSave = {
+--                 command = "clippy",
+--             },
+--             files = {
+--                 cargoFmt = {
+--                     enable = true,
+--                 },
+--             },
+--         }
+--     },
+-- })
 
 lspconfig.hls.setup({
     cmd = { "haskell-language-server-wrapper", "--lsp" },
