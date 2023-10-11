@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
                 end,
             },
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            { 'mason-org/mason-registry' },
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
@@ -42,6 +43,7 @@ return require('packer').startup(function(use)
     use 'rust-lang/rust.vim'
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
     use "terrortylor/nvim-comment"
 

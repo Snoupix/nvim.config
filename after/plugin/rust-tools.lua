@@ -1,11 +1,29 @@
 local rt = require("rust-tools")
+-- local mason_registery = require("mason-registry")
+--
+-- local codelldb = mason_registery.get_package("codelldb")
+-- local extension_path = codelldb:get_install_path() .. "/extension/"
+local extension_path = vim.env.HOME .. '/.vscode-server/extensions/vadimcn.vscode-lldb-1.10.0/'
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+
+local this_os = vim.loop.os_uname().sysname;
+
+-- The path in windows is different
+if this_os:find "Windows" then
+    codelldb_path = extension_path .. "adapter\\codelldb.exe"
+    liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
+else
+    -- The liblldb extension is .so for linux and .dylib for macOS
+    liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+end
 
 rt.setup({
     tools = { -- rust-tools options
 
         -- how to execute terminal commands
         -- options right now: termopen / quickfix / toggleterm / vimux
-        executor = require("rust-tools.executors").toggleterm,
+        executor = require("rust-tools.executors").termopen,
 
         -- callback to execute once rust-analyzer is done initializing the workspace
         -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
@@ -184,10 +202,11 @@ rt.setup({
 
     -- debugging stuff
     dap = {
-        adapter = {
-            type = "executable",
-            command = "lldb-vscode",
-            name = "rt_lldb",
-        },
+        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+        -- adapter = {
+        --     type = "executable",
+        --     command = "lldb-vscode",
+        --     name = "rt_lldb",
+        -- },
     },
 })
