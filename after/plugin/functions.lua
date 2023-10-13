@@ -3,7 +3,7 @@ local ChangeColorScheme = function(color)
         style = 'darker',             -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
         transparent = true,           -- Show/hide background
         term_colors = true,           -- Change terminal color as per the selected theme style
-        ending_tildes = true,        -- Show the end-of-buffer tildes. By default they are hidden
+        ending_tildes = true,         -- Show the end-of-buffer tildes. By default they are hidden
         cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
         -- toggle theme style ---
@@ -30,7 +30,8 @@ local ChangeColorScheme = function(color)
         colors = {
             -- dark_purple = '#ffffff',
             -- a nice yellow #c4c631
-            
+            -- #E2B477
+
             black = '#0e1013',
             -- bg0 = '#1f2329',
             bg0 = '#000000', -- Needed for lua line rounded borders to have a transparent background (Can't be none)
@@ -42,16 +43,16 @@ local ChangeColorScheme = function(color)
             bg_yellow = '#e8c88c',
             fg = '#a0a8b7',
             purple = '#a959c1', -- errors & keywords
-            green = '#3dce81', -- strings
+            green = '#3dce81',  -- strings
             orange = '#7c54ea', -- GLOBALS & some Types
-            blue = '#4fa6ed', -- functions
+            blue = '#4fa6ed',   -- functions
             yellow = '#20d6bd', -- imports
-            cyan = '#3bdbd5', -- properties & macros 
-            red = '#7a818e', -- error messages on popups & parameters
+            cyan = '#3bdbd5',   -- properties & macros
+            red = '#7a818e',    -- error messages on popups & parameters
             grey = '#535965',
             light_grey = '#7a818e',
             dark_cyan = '#266269',
-            dark_red = '#ad1b31', -- inline error messages
+            dark_red = '#ad1b31',    -- inline error messages
             dark_yellow = '#835d1a',
             dark_purple = '#7e3992', -- hint tips
             diff_add = '#272e23',
@@ -64,7 +65,7 @@ local ChangeColorScheme = function(color)
         -- Plugins Config --
         diagnostics = {
             darker = true,     -- darker colors for diagnostic
-            undercurl = true,   -- use undercurl instead of underline for diagnostics
+            undercurl = true,  -- use undercurl instead of underline for diagnostics
             background = true, -- use background color for virtual text
         },
     }

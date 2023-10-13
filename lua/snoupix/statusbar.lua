@@ -146,7 +146,7 @@ function RefreshLuaLine(theme)
                 GetCopilotStatus,
                 {
                     'diagnostics',
-                    symbols = { error = '❗️', warn = '🔔', info = '⚡️', hint = '💡' },
+                    symbols = { error = '❗️', warn = '🔔', info = '🚀', hint = '💡' },
                     colored = true,
                 }
             },
