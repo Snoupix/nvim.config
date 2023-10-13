@@ -141,7 +141,22 @@ function RefreshLuaLine(theme)
                 'fileformat',
                 { 'branch', cond = CheckGitWorkspace },
             },
-            lualine_c = { { 'diff', cond = CheckGitWorkspace }, GetLSPs, { '%=', separator = { right = '' } }, 'filename' },
+            lualine_c = {
+                {
+                    'diff',
+                    cond = CheckGitWorkspace
+                },
+                {
+                    require("lazy.status").updates,
+                    cond = require("lazy.status").has_updates,
+                    color = { fg = colors.orange },
+                },
+                GetLSPs,
+                {
+                    '%=', separator = { right = '' }
+                },
+                'filename'
+            },
             lualine_x = {
                 GetCopilotStatus,
                 {
