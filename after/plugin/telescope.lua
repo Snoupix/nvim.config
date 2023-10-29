@@ -6,6 +6,7 @@ require('telescope').setup({
         mappings = {
             i = {
                 ["<esc>"] = actions.close,
+                ["<C-e>"] = actions.delete_buffer,
                 ["<C-h>"] = actions.file_split,
                 ["<C-t>"] = actions.select_default,
                 ["<CR>"] = actions.select_tab,
