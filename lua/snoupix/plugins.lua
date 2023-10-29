@@ -58,7 +58,7 @@ return {
 
     {
         'terrortylor/nvim-comment',
-        run = function()
+        config = function()
             require('nvim_comment').setup()
         end
     },
