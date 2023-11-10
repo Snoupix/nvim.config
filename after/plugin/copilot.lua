@@ -22,4 +22,6 @@ vim.g.copilot_filetypes = {
     ["markdown"] = false,
     ["yaml"] = true,
     ["kdl"] = true,
+    ["dosbatch"] = true,
+    ["sh"] = true,
 }
