@@ -59,3 +59,7 @@ vim.api.nvim_set_keymap('n', "n", "nzz", { noremap = false })
 vim.api.nvim_set_keymap('n', "N", "Nzz", { noremap = false })
 
 vim.api.nvim_set_keymap('n', "<C-r>", "<cmd>e!<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', "<leader>?", "<cmd>echo expand('%:p')<CR>", { noremap = true, silent = false })
+-- echo @%
+-- https://vi.stackexchange.com/a/1885
