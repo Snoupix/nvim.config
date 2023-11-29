@@ -27,7 +27,6 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<leader>s", require('telescope.builtin').lsp_document_symbols, opts)
     vim.keymap.set("n", "<leader>ss", vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "<C-d>", vim.diagnostic.goto_next, opts)
