@@ -24,4 +24,5 @@ vim.g.copilot_filetypes = {
     ["kdl"] = true,
     ["dosbatch"] = true,
     ["sh"] = true,
+    ["svelte"] = true,
 }
