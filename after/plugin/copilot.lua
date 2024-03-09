@@ -25,4 +25,5 @@ vim.g.copilot_filetypes = {
     ["dosbatch"] = true,
     ["sh"] = true,
     ["svelte"] = true,
+    ["sql"] = true,
 }
