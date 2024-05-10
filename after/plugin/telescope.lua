@@ -8,8 +8,10 @@ require('telescope').setup({
                 ["<esc>"] = actions.close,
                 ["<C-e>"] = actions.delete_buffer,
                 ["<C-h>"] = actions.file_split,
-                ["<C-t>"] = actions.select_default,
-                ["<CR>"] = actions.select_tab,
+                -- ["<C-t>"] = actions.select_default,
+                ["<C-t>"] = actions.select_tab,
+                -- ["<CR>"] = actions.select_tab,
+                ["<CR>"] = actions.select_default,
 
             },
             n = {

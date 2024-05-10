@@ -136,6 +136,7 @@ return {
     {
         'giusgad/pets.nvim',
         dependencies = { 'MunifTanjim/nui.nvim', 'giusgad/hologram.nvim' },
+        enabled = false,
         config = function()
             require("pets").setup({
                 row = 1,                        -- the row (height) to display the pet at (higher row means the pet is lower on the screen), must be 1<=row<=10
@@ -153,6 +154,14 @@ return {
                     -- doesn't work for you then set this to true and the popup will use hl and will be spawned above the statusline (hopefully)
                 }
             })
+        end
+    },
+
+    {
+        'tamton-aquib/duck.nvim',
+        enabled = false,
+        config = function()
+            require("duck").hatch("🐈")
         end
     },
 
