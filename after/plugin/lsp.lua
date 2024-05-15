@@ -5,7 +5,7 @@ lsp.ensure_installed({
     'tsserver',
     'eslint',
     'sumneko_lua',
-    'dartls',
+    -- 'dartls',
     --'rust-analyzer',
 })
 

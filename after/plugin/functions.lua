@@ -84,6 +84,7 @@ local ExecuteVimCmds = function()
     vim.cmd [[highlight SignColumn guibg=NONE]]
     vim.cmd [[set autoread]]
     vim.cmd [[set guicursor=a:blinkon100]]
+    vim.cmd [[let g:copilot_enabled = 0]]
 end
 
 function FixMeDaddy(theme)
