@@ -85,6 +85,10 @@ local GetCopilotStatus = function()
         return "Copilot: Disabled for " .. string.match(status, "filetype=(%a+)")
     end
 
+    if string.find(status, "Disabled globally") then
+        return "Copilot: Disabled"
+    end
+
     return status
 end
 
@@ -161,7 +165,7 @@ function RefreshLuaLine(theme)
                 GetCopilotStatus,
                 {
                     'diagnostics',
-                    symbols = { error = '❗️', warn = '🔔', info = '🚀', hint = '💡' },
+                    symbols = { error = '❗️', warn = '🔔 ', info = '🚀 ', hint = '💡' },
                     colored = true,
                 }
             },
