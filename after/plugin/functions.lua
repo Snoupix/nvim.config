@@ -87,10 +87,14 @@ local ExecuteVimCmds = function()
     vim.cmd [[let g:copilot_enabled = 0]]
 end
 
-function FixMeDaddy(theme)
+function InitAll(theme, omit_cpoilot)
     ChangeColorScheme(theme)
     ExecuteVimCmds()
     RefreshLuaLine(theme)
+
+    if omit_cpoilot == nil or omit_cpoilot == false then
+        LoadCopilotStatus()
+    end
 end
 
-FixMeDaddy('onedark')
+InitAll('onedark', true)
