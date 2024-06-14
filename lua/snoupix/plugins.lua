@@ -49,11 +49,16 @@ return {
     },
 
     'rust-lang/rust.vim',
-    'simrat39/rust-tools.nvim',
+    -- 'simrat39/rust-tools.nvim', -- deprecated => rustaceanvim
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        lazy = false,   -- This plugin is already lazy
+    },
     'mfussenegger/nvim-dap',
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap" }
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
     },
 
     {
@@ -94,6 +99,7 @@ return {
 
     {
         'nvim-lualine/lualine.nvim',
+        enabled = true,
         dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
     },
 
