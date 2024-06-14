@@ -82,7 +82,7 @@ end
 -- (when the copilot status is fetched on dap-ui openning, it freezes probably because of the number of windws that executes this command ?)
 -- AND when spawning a nvim command with exec2, it awaits the result and blocks the startup time so by doing that with a function, it makes
 -- the startup time blazingly fast(er)
-local fetch_git_status = function()
+local fetch_copilot_status = function()
     local status = vim.api.nvim_exec2("Copilot status", { output = true }).output
 
     if string.find(status, "g:copilot_filetypes") then
@@ -95,29 +95,30 @@ local fetch_git_status = function()
 
     return status
 end
-local thread = coroutine.create(fetch_git_status)
+local thread = coroutine.create(fetch_copilot_status)
 local enable_auto_reload = false
 
-local git_status = ""
+local copilot_status = ""
 
-function LoadGitStatus()
+-- Global fn to trigger the command manually and avoid blocking the main thread on startup/boot
+function LoadCopilotStatus()
     if not enable_auto_reload then
         enable_auto_reload = true
     end
 
     if coroutine.status(thread) ~= "dead" then
         local _, s = coroutine.resume(thread)
-        git_status = s
-        thread = coroutine.create(fetch_git_status)
+        copilot_status = s
+        thread = coroutine.create(fetch_copilot_status)
     end
 end
 
-local GetGitStatus = function()
+local function get_copilot_status()
     if enable_auto_reload then
-        LoadGitStatus()
+        LoadCopilotStatus()
     end
 
-    return git_status
+    return copilot_status
 end
 
 function RefreshLuaLine(theme)
@@ -190,7 +191,7 @@ function RefreshLuaLine(theme)
                 'filename'
             },
             lualine_x = {
-                GetGitStatus,
+                get_copilot_status,
                 {
                     'diagnostics',
                     symbols = { error = '❗️', warn = '🔔 ', info = '🚀 ', hint = '💡' },
