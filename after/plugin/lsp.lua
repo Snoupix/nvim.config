@@ -2,11 +2,21 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.setup_servers({ 'dartls', force = true }) -- needed to use dartls from exec
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
     -- 'sumneko_lua',
     -- 'dartls',
     --'rust-analyzer',
+    'gopls',
+    'pyright',
+    'tailwindcss',
+    'bashls',
+    'clangd',
+    'cssls',
+    'eslint',
+    'lua_ls',
+    'sqlls',
+    'svelte',
+    'tsserver',
+    'yamlls'
 })
 
 local cmp = require('cmp')
