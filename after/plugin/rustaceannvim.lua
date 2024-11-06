@@ -1,3 +1,22 @@
+local windows_only_projects = {
+    ["audio"] = true,
+    ["apm_display"] = true,
+}
+
+local rust_analyzer_conf = {
+    checkOnSave = true,
+    check = {
+        command = "clippy",
+        -- extraArgs = { "--all", "--", "-W", "clippy::all" },
+    }
+}
+
+if windows_only_projects[vim.fn.getcwd():match("([^/]+)$")] ~= nil then
+    rust_analyzer_conf["cargo"] = {
+        target = "x86_64-pc-windows-gnu"
+    }
+end
+
 vim.g.rustaceanvim = function()
     local cfg = require('rustaceanvim.config')
 
@@ -173,13 +192,7 @@ vim.g.rustaceanvim = function()
                 -- vim.keymap.set("i", "<C-space>", cfg.hover_actions.hover_actions, { buffer = bufnr, remap = false })
             end,
             settings = {
-                ["rust-analyzer"] = {
-                    checkOnSave = true,
-                    check = {
-                        command = "clippy",
-                        -- extraArgs = { "--all", "--", "-W", "clippy::all" },
-                    }
-                }
+                ["rust-analyzer"] = rust_analyzer_conf
             },
         }, -- rust-analyzer options
     }
