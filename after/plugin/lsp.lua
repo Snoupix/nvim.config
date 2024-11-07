@@ -6,6 +6,7 @@ lsp.ensure_installed({
     -- 'dartls',
     --'rust-analyzer',
     'gopls',
+    'denols',
     'pyright',
     'tailwindcss',
     'bashls',
@@ -14,8 +15,9 @@ lsp.ensure_installed({
     'eslint',
     'lua_ls',
     'sqlls',
+    'volar',
     'svelte',
-    'tsserver',
+    'ts_ls',
     'yamlls'
 })
 
@@ -64,6 +66,46 @@ lsp.format_on_save({
 })
 
 local lspconfig = require('lspconfig')
+
+lspconfig.denols.setup({
+    on_attach = lsp.on_attach,
+    root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+
+lspconfig.ts_ls.setup({
+    on_attach = lsp.on_attach,
+    root_dir = lspconfig.util.root_pattern("package.json"),
+    init_options = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = "/home/snoupix/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin",
+                languages = {"javascript", "typescript", "vue"},
+            },
+        },
+    },
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.jsx",
+        "vue",
+    },
+    -- single_file_support = false,
+})
+
+lspconfig.volar.setup({
+    on_attach = lsp.on_attach,
+    filetypes = { 'typescript', 'javascript', 'vue', 'json' },
+    init_options = {
+        typescript = {
+            tsdk =
+            '/home/snoupix/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib'
+        }
+    }
+})
 
 -- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
