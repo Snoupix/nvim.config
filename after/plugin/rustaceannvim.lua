@@ -1,7 +1,25 @@
-local windows_only_projects = {
-    ["audio"] = true,
-    ["apm_display"] = true,
-}
+local function get_windows_projects()
+    -- Located at the root of nvim conf, most likely ~/.config/nvim
+    local path = vim.fn.stdpath("config") .. "/rust_win_projects.txt"
+    local projects = {}
+    local file = io.open(path, "r")
+
+    if file == nil then
+        return projects
+    end
+
+    local content = file:read("a")
+
+    for name in string.gmatch(content, "[^\r\n]+") do
+        projects[name] = true
+    end
+
+    file:close()
+
+    return projects
+end
+
+local windows_only_projects = get_windows_projects()
 
 local rust_analyzer_conf = {
     checkOnSave = true,

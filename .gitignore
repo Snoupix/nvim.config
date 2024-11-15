@@ -1,4 +1,6 @@
 plugin/packer_compiled.lua
 .ignore
 
+rust_win_projects.txt
+
 *.vim
