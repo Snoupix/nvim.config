@@ -102,7 +102,9 @@ local copilot_status = ""
 
 -- Global fn to trigger the command manually and avoid blocking the main thread on startup/boot
 function LoadCopilotStatus()
-    if not enable_auto_reload then
+    -- early return since the disabling of Copilot
+
+    --[[ if not enable_auto_reload then
         enable_auto_reload = true
     end
 
@@ -110,7 +112,7 @@ function LoadCopilotStatus()
         local _, s = coroutine.resume(thread)
         copilot_status = s
         thread = coroutine.create(fetch_copilot_status)
-    end
+    end ]]
 end
 
 local function get_copilot_status()

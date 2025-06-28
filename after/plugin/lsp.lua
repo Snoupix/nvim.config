@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 
-lsp.setup_servers({ 'dartls', force = true }) -- needed to use dartls from exec
+-- lsp.setup_servers({ 'dartls', force = true }) -- needed to use dartls from exec
 lsp.ensure_installed({
     -- 'sumneko_lua',
     -- 'dartls',
@@ -65,6 +65,9 @@ lsp.format_on_save({
     }
 })
 
+-- Go fmt on save
+vim.cmd [[autocmd BufWritePost *.go silent !gofmt -w %]]
+
 local lspconfig = require('lspconfig')
 
 lspconfig.denols.setup({
@@ -80,7 +83,7 @@ lspconfig.ts_ls.setup({
             {
                 name = "@vue/typescript-plugin",
                 location = "/home/snoupix/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin",
-                languages = {"javascript", "typescript", "vue"},
+                languages = { "javascript", "typescript", "vue" },
             },
         },
     },

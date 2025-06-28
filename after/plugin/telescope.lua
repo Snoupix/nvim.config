@@ -12,19 +12,21 @@ require('telescope').setup({
                 ["<C-t>"] = actions.select_tab,
                 -- ["<CR>"] = actions.select_tab,
                 ["<CR>"] = actions.select_default,
-
+                ["<C-s>"] = shorten_paths,
             },
             n = {
                 ["<C-t>"] = actions.select_default,
                 ["<CR>"] = actions.select_tab,
             }
         },
+        trim_text = false,
     },
 })
 
 -- <C-x> go to file selection as a split => now <C-h>
 -- <C-v> go to file selection as a vsplit
 -- <C-t> go to a file in a new tab
+-- <C-s> shorten the displyed path
 vim.keymap.set('n', '<leader>fa', function()
     builtin.find_files({ hidden = true, no_ignore = true })
 end, {})

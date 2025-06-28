@@ -33,12 +33,16 @@ return {
             { 'neovim/nvim-lspconfig' }, -- Required
             {
                 -- Optional
-                'williamboman/mason.nvim',
+                'mason-org/mason.nvim',
+                version = "^1.0.0", -- https://github.com/LazyVim/LazyVim/issues/6039
                 run = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            {
+                'mason-org/mason-lspconfig.nvim',
+                version = "^1.0.0", -- https://github.com/LazyVim/LazyVim/issues/6039
+            },                      -- Optional
             { 'mason-org/mason-registry' },
 
             -- Autocompletion
@@ -87,7 +91,10 @@ return {
         end,
     },
 
-    'github/copilot.vim',
+    {
+        'github/copilot.vim',
+        enabled = false,
+    },
 
     {
         'sourcegraph/sg.nvim',
@@ -196,5 +203,5 @@ return {
 
     'imsnif/kdl.vim',
 
-    'psliwka/vim-smoothie',
+    -- 'psliwka/vim-smoothie',
 }

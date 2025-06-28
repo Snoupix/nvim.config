@@ -26,4 +26,5 @@ vim.g.copilot_filetypes = {
     ["sh"] = true,
     ["svelte"] = true,
     ["sql"] = true,
+    ["zig"] = true,
 }
