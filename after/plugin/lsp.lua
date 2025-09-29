@@ -15,10 +15,11 @@ lsp.ensure_installed({
     'eslint',
     'lua_ls',
     'sqlls',
-    'volar',
+    -- 'volar',
     'svelte',
     'ts_ls',
-    'yamlls'
+    'yamlls',
+    'zls'
 })
 
 local cmp = require('cmp')
@@ -99,7 +100,7 @@ lspconfig.ts_ls.setup({
     -- single_file_support = false,
 })
 
-lspconfig.volar.setup({
+--[[ lspconfig.volar.setup({
     on_attach = lsp.on_attach,
     filetypes = { 'typescript', 'javascript', 'vue', 'json' },
     init_options = {
@@ -108,7 +109,7 @@ lspconfig.volar.setup({
             '/home/snoupix/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib'
         }
     }
-})
+}) --]]
 
 -- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
