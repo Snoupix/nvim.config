@@ -11,7 +11,12 @@ local function get_windows_projects()
     local content = file:read("a")
 
     for name in string.gmatch(content, "[^\r\n]+") do
+        if string.match(name, "^#") then
+            goto continue
+        end
+
         projects[name] = true
+        ::continue::
     end
 
     file:close()
